@@ -37,4 +37,6 @@ def predict():
     return render_template('result.html', result=data)
     
         #except:
-           # return jsonify({'error': 'error during prediction'})
+           # return jsonify({'error': 'error during prediction'}
+if __name__ == '__main__':
+    app.run()
