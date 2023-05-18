@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify, render_template, flash
 from torch_utils import get_prediction
 
 app = Flask(__name__)
-
+port = int(os.environ.get('PORT', 5000))
 result = ''
 
 def helper_func(data):
@@ -50,4 +50,4 @@ def result():
         #except:
            # return jsonify({'error': 'error during prediction'}
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=True)
