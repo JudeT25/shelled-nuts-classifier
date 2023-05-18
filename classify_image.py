@@ -37,10 +37,9 @@ def predict_image(model: torch.nn.Module,
 	image_prediction_label = torch.argmax(image_prediction_possibilities, dim = 1)
 
 	if class_names:
-		result = print(f"Prediction {class_names[image_prediction_label.cpu()]} | Probability: {image_prediction_possibilities.max().cpu():.3f} ")
+		return (class_names[image_prediction_label.cpu()], (image_prediction_possibilities.max().cpu()) )
 	else:
-		result = print(f"Prediction: {image_prediction_label} | Probability: {image_prediction_possibilities.max().cpu():.3f}")
-	return result
+		return (image_prediction_label, (image_prediction_possibilities.max().cpu()) )
 
 '''
 data_transform = transforms.Compose([
