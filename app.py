@@ -32,9 +32,20 @@ def upload():
 
 @app.route('/predict', methods=['POST', 'GET'])
 def predict(): 
-    data = get_prediction()
+    result = get_prediction()
 
-    return render_template('result.html', result=data)
+    return jsonify({'redirect': '/result'}
+                   
+@app.route('/result', methods=['POST', 'GET'])
+def result(): 
+    result, accuracy = get_prediction()
+    #Show only two digits after decimal point
+    accuracy = accuracy.item()
+    accuracy=accuracy*100
+    accuracy=accuracy//1
+    accuracy=accuracy/100
+
+    return render_template('result.html', result=result, accuracy=accuracy)
     
         #except:
            # return jsonify({'error': 'error during prediction'}
