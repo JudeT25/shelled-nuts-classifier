@@ -1,6 +1,6 @@
 import torch
 from pathlib import Path
-
+#function used to save model after its been trained
 def save_model (model: torch.nn.Module,
 				save_directory: str,
 				model_name: str):
