@@ -4,7 +4,6 @@ from flask import Flask, request, jsonify, render_template, flash
 from torch_utils import get_prediction
 
 app = Flask(__name__)
-port = int(os.environ.get('PORT', 5000))
 result = ''
 
 def helper_func(data):
