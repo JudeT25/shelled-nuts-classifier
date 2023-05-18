@@ -35,7 +35,6 @@ def predict():
     result = get_prediction()
 
     return jsonify({'redirect': '/result'}
-                   
 @app.route('/result', methods=['POST', 'GET'])
 def result(): 
     result, accuracy = get_prediction()
